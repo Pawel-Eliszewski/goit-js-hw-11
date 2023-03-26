@@ -1,1 +1,26 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+body {
+    padding-bottom: 25px;
+}
+
+.load-more {
+    color: white;
+    background-color: rgb(115, 0, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    width: 130px;
+    height: 45px;
+    margin-top: 25px;
+    margin-inline: auto;
+    border-radius: 4px;
+    transition-duration: 250ms;
+
+    &:hover {
+        background-color: rgb(80, 0, 184);
+        transition-duration: 250ms;
+    }
+}
