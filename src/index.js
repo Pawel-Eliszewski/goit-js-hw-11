@@ -94,6 +94,8 @@ async function renderGalleryByName(page) {
     }
 }
 
+let page = 1;
+
 submitBtn.addEventListener('click', e => {
   e.preventDefault();
   if (input.value !== 0) {
