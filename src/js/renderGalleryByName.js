@@ -6,8 +6,20 @@ import Axios from 'axios';
 export const gallery = document.querySelector('.gallery');
 export const loadBtn = document.querySelector('.load-more');
 export const input = document.querySelector('.search-form__input');
+export const infinityBtn = document.querySelector('#cb1');
+
+export const infinityScroll = () => {
+  if (infinityBtn.checked === true) {
+    loadBtn.style.display = 'none';
+  } else if (infinityBtn.checked !== true && gallery.children.length !== 0) {
+    loadBtn.style.display = 'flex';
+  } else {
+    loadBtn.style.display = 'none';
+  }
+};
 
 export async function renderGalleryByName(page) {
+  infinityScroll();
   const API_KEY = '34700780-6518b738595d403a93012b466';
   const URL =
     'https://pixabay.com/api/?key=' +
@@ -25,7 +37,7 @@ export async function renderGalleryByName(page) {
     try {
       const response = await Axios.get(`${URL}`);
       const hits = response.data.hits;
-      if (hits.length < 40 && hits.length > 0) {
+      if (hits.length < 40 && hits.length !== 0) {
         Notiflix.Notify.info(
           "We're sorry, but you've reached the end of search results."
         );

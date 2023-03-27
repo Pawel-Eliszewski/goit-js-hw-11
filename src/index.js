@@ -2,6 +2,8 @@ import {
   gallery,
   loadBtn,
   input,
+  infinityBtn,
+  infinityScroll,
   renderGalleryByName,
 } from './js/renderGalleryByName';
 
@@ -19,6 +21,29 @@ submitBtn.addEventListener('click', e => {
     page = 1;
   }
   renderGalleryByName(page);
+});
+
+document.addEventListener('DOMContentLoaded', function (e) {
+  document.addEventListener('scroll', function (e) {
+    let documentHeight = document.body.scrollHeight;
+    let currentScroll = window.scrollY + window.innerHeight;
+    let modifier = 200;
+    if (
+      infinityBtn.checked === true &&
+      gallery.children.length % 10 === 0 &&
+      currentScroll + modifier > documentHeight
+    ) {
+      page += 1;
+      renderGalleryByName(page);
+    }
+  });
+});
+
+infinityBtn.addEventListener('click', () => {
+  infinityScroll();
+  if (gallery.children.length % 10 !== 0) {
+    loadBtn.style.display = 'none';
+  }
 });
 
 loadBtn.addEventListener('click', e => {
