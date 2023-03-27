@@ -1,7 +1,7 @@
 .search {
     display: flex;
     justify-content: center;
-    background-color: rgb(115, 0, 255);
+    background-color: rgb(55, 55, 255);
     position: sticky;
     top: 0;
     left: 0;
@@ -16,7 +16,7 @@
         height: 40px;
 
         &:first-child:focus-within {
-            outline: 2px solid rgb(163, 163, 255);
+            outline: 2px solid rgb(181, 181, 254);
             border-radius: 4px;
             transition-duration: 100ms;
         }
@@ -30,6 +30,7 @@
         }
 
         &__btn {
+            background-color: rgb(240, 240, 240);
             border: none;
             cursor: pointer;
             width: 40px;
